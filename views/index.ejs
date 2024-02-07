@@ -5,7 +5,21 @@
     <div class="main__card--positioning">
 
       <!-- Card Front -->
-      <div class="main__card--front">
+      <div class="main__card--front main__card">
+
+        <video class="main__card--backgroundvideo" autoplay loop muted poster>
+          <source src="../assets/video-full.mp4">
+        </video>
+
+        <button class="main__card--flipbutton">Click me!</button>
+
+        <section class="main__card--buttons">
+          <img src="../assets/shuffle.svg" alt="Shuffle">
+          <img src="../assets/previous.svg" alt="Previous">
+          <img class="main__card--play" src="../assets/play.svg" alt="Play">
+          <img src="../assets/next.svg" alt="Next">
+          <img src="../assets/repeat.svg" alt="Repeat">
+        </section>
 
         <h1 class="main__card--title"><%= data.nickname %></h1>
         <p class="main__card--name"><%= data.name %> <%= data.surname %></p>
@@ -13,7 +27,7 @@
       </div>
 
       <!-- Card Back -->
-      <div class="main__card--back">
+      <div class="main__card--back main__card">
         <!-- Top Waves -->
         <div class="custom-shape-divider-top-1707322241">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -27,7 +41,7 @@
 
         <section class="main__card--section">
           <h3>About me</h3>
-          <p>I was born in amsterdam and currently I am <%= data.custom.Leeftijd %> years old.</p>
+          <p>I was born in Amsterdam and currently I am <%= data.custom.Leeftijd %> years old.</p>
           <p>In my free time I like to game, code, call with friends and spend time with my family.</p>
         </section>
 

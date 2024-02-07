@@ -18,6 +18,7 @@
     --green: #1ae72b;
     --lightgreen: #c7fdbf;
     --grey: #202020;
+    --lightgrey: #ddd;
     --white: #fff;
 }
 
@@ -27,7 +28,8 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
   letter-spacing: 4px;
-  background: linear-gradient(#ffffff, #bbbbbb);
+  /* background: linear-gradient(#fff, #bebebe); */
+  background: linear-gradient(#fff, #ffeece);
 }
 
 h1, h2, h3 {
@@ -42,7 +44,7 @@ p {
   letter-spacing: 2px;
 }
 
-ul, li {
+ul, li, button {
   list-style-type: none;
   text-decoration: none;
   padding: 0;
@@ -55,7 +57,19 @@ ul, li {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ebebebbb;
+}
+
+.main__card--backgroundvideo {
+  width: 25em;
+  height: 35em;
+  object-fit: cover;
+  border-radius: 12px;
+  z-index: -1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .main__card--container {
@@ -73,9 +87,10 @@ ul, li {
   transform-style: preserve-3d;
 }
 
-.main__card--container:hover .main__card--positioning {
+/* TODO: This should be > tablet sizes only so they don't conflict with the other media query placed below. */
+/* .main__card--container:hover .main__card--positioning {
   transform: rotateY(180deg);
-}
+} */
 
 .main__card--front, .main__card--back {
   position: absolute;
@@ -87,8 +102,9 @@ ul, li {
 }
 
 .main__card--front {
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.637)),
-  url('assets/profile-pic.png');
+  /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.637)),
+  url('assets/profile-pic.png'); */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.637));
   
   background-size: cover;
   background-position: center;
@@ -99,7 +115,7 @@ ul, li {
 .main__card--back {
   border-radius: 12px;
   transform: rotateY(180deg);
-  background-color: #fff;
+  background-color: var(--grey);
 }
 
 /* ------------------ Content Front ------------------ */
@@ -107,26 +123,57 @@ ul, li {
 .main__card--title {
   color: var(--white);
   font-size: 4em;
-  margin-top: 6.4em;
+  margin-top: 0;
 }
 
 .main__card--name {
   color: var(--white);
   opacity: 0.8;
-  font-size: 1.6em;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+.main__card--buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 23em;
+  filter: invert(100%) sepia(0%) saturate(6341%) hue-rotate(275deg) brightness(116%) contrast(100%);
+}
+
+.main__card--buttons img {
+  width: 32px;
+  margin: 0 0.2em;
+}
+
+.main__card--buttons img:nth-of-type(2), img:nth-of-type(4) {
+  width: 42px;
+}
+
+.main__card--buttons img:nth-of-type(3) {
+  width: 56px;
+}
+
+.main__card--flipbutton {
+  display: none;
 }
 
 /* ------------------ Content Back ------------------ */
 
 h2 {
   font-size: 2.6em;
-  color: var(--grey);
+  color: var(--white);
   margin-top: 1em;
   margin-bottom: 0;
 }
 
 h3 {
-  color: var(--grey);
+  color: var(--white);
+}
+
+p {
+  color: var(--white);
 }
 
 .main__card--section {
@@ -154,6 +201,78 @@ h3 {
   margin: 1em;
 }
 
+/* Mobile and Tablet */
+
+@media screen and (min-width: 1024px) {
+  .main__card--container:hover .main__card--positioning {
+    transform: rotateY(180deg);
+  }  
+}
+
+@media screen and (max-width: 1023px) {
+  .main__card--flipbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8em;
+    height: 3em;
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 0.4em 0.4em 0.4em 10.6em;
+  }
+  
+  .main__card--buttons {
+    margin-top: 18em;
+  }
+
+  .main__card--flip {
+    transform: rotateY(180deg);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main__card--container {
+    width: 20em;
+    height: 30em;
+  }
+
+  .main__card--backgroundvideo {
+    width: 20em;
+    height: 30em;
+  }
+
+  .main__card--flipbutton {
+    font-size: 1.2em;
+    margin: 0.4em 0.4em 0.4em 9.4em;
+  }
+
+  .main__card--buttons {
+    margin-top: 14em;
+  }
+
+  .main__card--facts {
+    margin: 0 auto;
+    padding: 0;
+    width: 90%;
+  }
+
+  /* .main__card--section {
+    margin-bottom: 0;
+  } */
+
+  .main__card--back p {
+    font-size: 0.8em;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
 /* ------------------ Background shapes ------------------ */
 
 /*  */
@@ -175,7 +294,7 @@ h3 {
 }
 
 .custom-shape-divider-top-1707322241 .shape-fill {
-  fill: var(--pink);
+  fill: #444;
 }
 
 /*  */
@@ -198,5 +317,5 @@ h3 {
 }
 
 .custom-shape-divider-bottom-1707322314 .shape-fill {
-  fill: var(--lightpink);
+  fill: #444;
 }
