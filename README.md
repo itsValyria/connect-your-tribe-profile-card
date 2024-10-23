@@ -28,7 +28,14 @@ Zelf proberen? [Klik hier](https://visitekaartje.eefhaller.com)
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
 
-In dit project heb ik gebruik gemaakt van HTML, CSS, JavaScript en Node.
+### Node
+Node is een open source platform wat wij in dit geval gebruiken om JavaScript te gebruiken voor server-side werken. De JavaScript wordt in dit geval gelijk gerund in de computer in plaats van in de browser.
+
+### Express
+Express is een framework voor Node. Het is eigenlijk een laagje over Node heen, wat ervoor zorgt dat helpt om servers en routes te managen.
+
+### EJS
+EJS is een template voor Node. Op deze manier kun je je HTML met zo min mogelijk code maken. Zo heb je een ```head``` en ```foot``` die je dan op meerdere pagina's kan implementeren. Ook kun je bepaalde secties loopen. Dit betekent dat je hetzelfde stukje HTML meerdere keren op de website ziet, terwijl het eigenlijk maar één keer in je ```index.ejs``` staat.
 
 ## Installatie
 
